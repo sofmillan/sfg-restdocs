@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ curl 'https://dev.springframework.guru:80/api/v1/beer/d7411559-04d9-40e9-82ac-adb3dad0774d?iscold=yes' -i -X GET \
+    -H 'Accept: application/json'
+----
