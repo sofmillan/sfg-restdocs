@@ -27,6 +27,8 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 
 
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -58,6 +60,17 @@ class BeerControllerTest {
                                     parameterWithName("beerId").description("UUID of desired beer to get.")
                                 ), requestParameters(
                                         parameterWithName("iscold").description("Is beer cold query param")
+                                ), //you must document all the response attributes
+                                responseFields(
+                                        fieldWithPath("id").description("Id of beer"),
+                                        fieldWithPath("version").description("Version number"),
+                                        fieldWithPath("createdDate").description("Date created"),
+                                        fieldWithPath("lastModifiedDate").description("Date updated"),
+                                        fieldWithPath("beerName").description("Beer name"),
+                                        fieldWithPath("beerStyle").description("Beer style"),
+                                        fieldWithPath("upc").description("UPC of beer"),
+                                        fieldWithPath("price").description("Price"),
+                                        fieldWithPath("quantityOnHand").description("Quantity on hand")
                                 )));
     }
 
